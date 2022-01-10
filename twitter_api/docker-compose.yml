@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  railsdb:
+    image: postgres:12
+    ports:
+      - "5432:5432" 
+    environment:
+      - POSTGRES_DB=rails
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./twitter:/var/lib/postgresql/data
+    networks:
+      - net
+
+volumes:
+  twitter: 
+
+networks:
+  net:
+    driver: bridge
